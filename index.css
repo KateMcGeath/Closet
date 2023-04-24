@@ -1,0 +1,142 @@
+.outfit {
+    margin-left: auto;
+    margin-right: auto;
+    width: min-content;
+    background-color: white;
+}
+
+.top {
+    display: flex;
+    height: 150px;
+    justify-content: center;
+    background-color: white;
+}
+
+.bottom {
+    display: flex;
+    height: 150px;
+    justify-content: center;
+    background-color: white;
+}
+
+#one-piece-div {
+    display: flex;
+    height: 300px;
+    justify-content: center;
+    background-color: white;
+}
+
+#one-piece {
+    width: 175px;
+}
+
+#two-piece {
+    width: 175px;
+}
+
+#two-piece-div {
+    flex-direction: column;
+}
+
+#shoes {
+    width: 175px;
+}
+
+.shoes {
+    display: flex;
+    height: 120px;
+    justify-content: center;
+    background-color: white;
+}
+
+.title {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    z-index: 1;
+    font-family: 'Extraoin Zhurdlyou Anarchy';
+    font-size: 40px;
+}
+
+.newOutfit {
+    display: flex;
+    width: fit-content;
+}
+
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 50%;
+    margin-left: -400px;
+}
+
+body {
+    height: "100%";
+    width: 100%;
+    background-image: url("images/empty-bulletin-board-background-.jpeg");
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    z-index: -1;
+    margin: 0px;
+}
+
+.checkboxes {
+    display: flex;
+    justify-content: center;
+}
+
+.accordion {
+    background-color: black;
+    color:darkgray;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+  }
+  
+  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+  .active, .accordion:hover {
+    background-color: black;
+    width: 100%;
+  }
+  
+  /* Style the accordion panel. Note: hidden by default */
+  .panel {
+    padding: 0 18px;
+    background-color: black;
+    display: none;
+    overflow: hidden;
+    color: darkgray;
+  }
+
+  .accordion:after {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: darkgray;
+    float: right;
+    margin-left: 5px;
+  }
+  
+  .active:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+  }
+
+  .accordion-div {
+    float: right;
+    background-color: black;
+    height: 100%;
+    width: 280px;
+  }
+
+
+

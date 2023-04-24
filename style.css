@@ -1,0 +1,115 @@
+/************************************************/
+/**************** RESET VALUES ******************/
+/************************************************/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /************************************************/
+  /*************** BODY & HEADER ******************/
+  /************************************************/
+  
+  body {
+    background: #D7F9F4;
+  }
+  
+  /* Header Styles */
+  
+  h1 {
+    text-align: center;
+    color: #0d9c90;
+    font-size: 35px;
+    padding: 30px 15px 15px 15px;
+  }
+  
+  h3 {
+    text-align: center;
+    color: #0d9c90;
+    font-size: 20px;
+    padding: 5px;
+  }
+  
+  /************************************************/
+  /**************** MEMORY CARDS ******************/
+  /************************************************/
+  
+  /* This is the container that holds all of the memory cards */
+  main {
+    width: 100%;
+    /*border-style: dotted;*/ /* Uncomment this line to see a dotted line around the container */
+  }
+  
+  .card-container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 0.5em 0;
+    /*border-style: dotted;*/ /* Uncomment this line to see a dotted line around the container */
+  }
+  
+  .intro-text {
+    width: 90%;
+    margin: 0 auto;
+    padding: 0.5em 0;
+    color: #0d9c90;
+    font-size: 11pt;
+    padding: 1em 1em;
+    /*border-style: dotted;*/ /* Uncomment this line to see a dotted line around the container */
+  }
+  
+  .memory-card {
+    width: 90%;
+    margin: 0.5em auto;
+    background-color: #0d9c90;
+    /*border-style: dotted;*/ /* Uncomment this line to see a dotted line around the container */
+  }
+  
+  .memory-image {
+    width: 90%;
+    margin: 0 auto;
+    padding: 1.2em 1em;
+    /*border-style: dotted;*/ /* Uncomment this line to see a dotted line around the container */
+  }
+  
+  .memory-image img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    /*border-style: dotted;*/ /* Uncomment this line to see a dotted line around the container */
+  }
+  
+  .description {
+    width: 90%;
+    margin: 0 auto;
+    padding: 1em 1em;
+    /*border-style: dotted;*/ /* Uncomment this line to see a dotted line around the container */
+  }
+  
+  
+  .description p {
+    color: white;
+    text-decoration: none;
+    font-family: sans-serif;
+    text-align: center;
+    /*border-style: dotted;*/ /* Uncomment this line to see a dotted line around the container */
+  }
+  
+  .description h2 {
+    padding-bottom: 0.5em;
+    text-align: center;
+    color: white;
+    /*border-style: dotted;*/ /* Uncomment this line to see a dotted line around the container */
+  }
+  
+  
+  /************************************************/
+  /*************** FLEXBOX STYLES *****************/
+  /************************************************/
+  
+  /* Add flexbox styles here! */
+  
+  
+  
