@@ -1,9 +1,10 @@
+/**Create global variables**/
 const clothes = [];
-var selectedTops = [];
-var selectedDresses = [];
-var selectedBottoms = [];
-var selectedShoes = [];
-var selectedClothes = [];
+var selectedTops;
+var selectedDresses;
+var selectedBottoms;
+var selectedShoes;
+var selectedClothes;
 var j = 0;
 var i = 0;
 var h = 0;
@@ -16,8 +17,9 @@ let values = [];
 let topExists = false;
 let bottomExists = false;
 let dressExists = false;
+let checkboxes = 0;
 
-
+/**Create and Initialize clothes**/
 const short_sleeve1 = {img: "short-sleeve1.png", style: "short-sleeve", color: "grey", weather: ["summer", "spring", "fall"], type: "two-piece"};
 const short_sleeve2 = {img: "short-sleeve2.png", style: "short-sleeve", color: "blue", weather: ["summer", "spring", "fall"]};
 const short_sleeve3 = {img: "short-sleeve3.png", style: "short-sleeve", color: "white", weather: ["summer", "spring", "fall"]};
@@ -44,6 +46,7 @@ const pants1 = {img: "pants1.png", style: "pants", color: "blue", weather: ["sum
 const pants2 = {img: "pants2.png", style: "pants", color: "blue", weather: ["summer", "spring", "fall", "winter"]};
 const pants3 = {img: "pants3.png", style: "pants", color: "black", weather: ["summer", "spring", "fall", "winter"]};
 
+/**Put clothes objects into Clothes array**/
 clothes[0] = short_sleeve1;
 clothes[1] = short_sleeve2;
 clothes[2] = short_sleeve3;
@@ -70,15 +73,9 @@ clothes[22] = pants1;
 clothes[23] = pants2;
 clothes[24] = pants3;
 
-selectedBottoms = [];
-selectedTops = [];
-selectedDresses = [];
-selectedShoes = [];
-let checkboxes = 0;
 
-
-getClothes();
-
+/**On Click event for each checkbox that is selected,
+ * puts selected checkboxes in an array**/
 document.getElementById("btn").addEventListener('click', (event) => {
     checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
 
@@ -91,24 +88,42 @@ document.getElementById("btn").addEventListener('click', (event) => {
     getClothes();
 });
 
+/**Call to load and get clothes to display**/
+getClothes();
 
-
+/**Get the selected checkboxes of clothes only**/
 function getSelectedClothes() {
 
+    //Initialize variables
     topExists = false;
     bottomExists = false;
     dressExists = false;
+    selectedBottoms = [];
+    selectedTops = [];
+    selectedDresses = [];
+    selectedShoes = []; 
 
-    const val = values.pop();
+    //Pop off last value
+    var val = values.pop();
+
+    //If nothing is selected, the value of pop will be undefined.
+    //If nothing is checked, use short-sleeve and shorts as template.
     if(val == undefined) {
+
         i = 0;
+
+        //Loop through the clothes array.
         for(j = 0; j < clothes.length; j++) { 
 
+            //If object in clothes array is equal to short-sleeve,
+            //add object image to selected tops array.
             if(clothes[j].style == "short-sleeve") {
                 selectedTops.push(clothes[j].img);
                 topExists = true;
                 i++;
             }
+            //If object in clothes array is equal to shorts,
+            //add object image to selected bottoms array.
             if(clothes[j].style == "shorts") {
                 selectedBottoms.push(clothes[j].img);
                 bottomExists = true;
@@ -117,48 +132,71 @@ function getSelectedClothes() {
         }
     }
     else {
-        i = 0;
-        for(j = 0; j < clothes.length; j++) { 
-            
-            if(clothes[j].style == val == "short-sleeve") {
-                selectedTops.push(clothes[j].img);
-                topExists = true;
-                i++;
-            }
-            if(clothes[j].style == val == "long-sleeve") {
-                selectedTops.push(clothes[j].img);
-                topExists = true;
-                i++;
-            }
-            if(clothes[j].style == val == "shorts") {
-                selectedBottoms.push(clothes[j].img);
-                bottomExists = true;
-                i++;
-            }
-            if(clothes[j].style == val == "pants") {
-                selectedBottoms.push(clothes[j].img);
-                bottomExists = true;
-                i++;
-            }
-            if(clothes[j].style == val == "skirt") {
-                selectedBottoms.push(clothes[j].img);
-                bottomExists = true;
-                i++;
-            }
-            if(clothes[j].style == val == "dress") {
-                selectedDresses.push(clothes[j].img);
-                dressExists = true;
-                i++;
-            }
-        } 
+        //While val is defined, loop through clothes array.
+        while(val) {
+            i = 0;
+            for(j = 0; j < clothes.length; j++) { 
+
+                //If clothes object's style is equal to the popped value,
+                if(clothes[j].style === val) {
+
+                    //then compare value to short-sleeve.
+                    //If val is equal, push clothes object onto selected tops array.
+                    if(val === 'short-sleeve') {
+                        selectedTops.push(clothes[j].img);
+                        topExists = true;
+                        i++;
+                    }
+                    //then compare value to long-sleeve.
+                    //If val is equal, push clothes object onto selected tops array.
+                    if(val === 'long-sleeve') {
+                        selectedTops.push(clothes[j].img);
+                        topExists = true;
+                        i++;
+                    }
+                    //then compare value to shorts.
+                    //If val is equal, push clothes object onto selected bottoms array.
+                    if(val === 'shorts') {
+                        selectedBottoms.push(clothes[j].img);
+                        bottomExists = true;
+                        i++;
+                    }
+                    //then compare value to pants.
+                    //If val is equal, push clothes object onto selected bottoms array.
+                    if(val === 'pants') {
+                        selectedBottoms.push(clothes[j].img);
+                        bottomExists = true;
+                        i++;
+                    }
+                    //then compare value to skirt.
+                    //If val is equal, push clothes object onto selected bottoms array.
+                    if(val === 'skirt') {
+                        selectedBottoms.push(clothes[j].img);
+                        bottomExists = true;
+                        i++;
+                    }
+                    //then compare value to dress.
+                    //If val is equal, push clothes object onto selected dresses array.
+                    if(val === 'dress') {
+                        selectedDresses.push(clothes[j].img);
+                        dressExists = true;
+                        i++;
+                    }
+                }
+            } 
+        //Pop off the next value that is selected.
+        val = values.pop();
+        }
     }
 }
 
 
 
-
+/**Get a random outfit from the selected clothes**/
 function getOutfit() {
     
+    //If object in clothes array is equal to shoes,
+    //add object image to selected shoes array.
     i = 0;
     for(j = 0; j < clothes.length; j++) { 
         if(clothes[j].style == "shoes") {
@@ -167,27 +205,33 @@ function getOutfit() {
         }
     }
 
+    //Get random shoes.
     var num0 = Math.floor( Math.random() * selectedShoes.length );
     shoe = selectedShoes[ num0 ];
     
+    //If selected is a dress, get a random dress.
+    if(dressExists) {
+        var num3 = Math.floor(Math.random() * selectedDresses.length);
+        dress = selectedDresses[ num3 ];
+    }
+
+    //If selected is a top, get a random top.
     if(topExists) {
         var num1 = Math.floor( Math.random() * selectedTops.length );
         top = selectedTops[ num1 ]; 
     }
 
+    //If selected is a bottom, get a random bottom.
     if(bottomExists) {
         var num2 = Math.floor( Math.random() * selectedBottoms.length);
         bottom = selectedBottoms[ num2 ];
     }
-
-    if(dressExists) {
-        var num3 = Math.floor(Math.random() * selectedDresses.length);
-        dress = selectedDresses[ num3 ];
-    }
-    
 }
 
+/**Display the outfit depending on if its a one-piece or two-piece**/
 function displayOutfit() {
+
+    //If the outfit is a two-piece, display outfit.
     if(topExists && bottomExists) {
 
         document.getElementById("two-piece-div").style.display = "block";
@@ -200,6 +244,8 @@ function displayOutfit() {
         document.getElementById("bottom").src = imgBottom;
 
     }
+    //If the selected is a two-piece and one-piece,
+    //pick a random two-piece or one-piece.
     else if(topExists && dressExists) {
 
         var num1 = Math.floor( Math.random() * 2 );
@@ -224,6 +270,7 @@ function displayOutfit() {
             document.getElementById("bottom").src = imgBottom;
         }
     }
+    //If the outfit is a one-piece, display the one-piece.
     else if(dressExists) {
 
         document.getElementById("one-piece-div").style.display = "flex";
@@ -233,13 +280,14 @@ function displayOutfit() {
         document.getElementById("one-piece").src = imgDress;
     }
 
+    //Display random shoes.
     var imgShoe = "";
     imgShoe = "images/" + shoe;
     document.getElementById("shoes").src = imgShoe;
 }
 
 
-
+/**Function call to get clothes**/
 function getClothes(){
 
     getSelectedClothes();
@@ -250,6 +298,7 @@ function getClothes(){
 
 }
 
+/**Accordion event listener**/
 var acc = document.getElementsByClassName("accordion");
 var i;
 

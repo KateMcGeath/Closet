@@ -2,9 +2,9 @@
     "configurations": [
         {
             "type": "chrome",
-            "name": "https://localhost:8080",
+            "name": "http://127.0.0.1:5500",
             "request": "launch",
-            "url": "https://localhost:8080"
+            "url": "http://127.0.0.1:5500"
         }
     ]
 }
