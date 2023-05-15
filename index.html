@@ -2,6 +2,9 @@
   <head class="header">
   </head>
   <body>
+    <div id="background-img">
+      <img src="images/empty-bulletin-board-background-.jpeg" width="1100px" height="auto">
+    </div>
     <link rel="stylesheet" href="index.css">
     <script type = "module" src="index.js"></script>
     <script src="https://kit.fontawesome.com/146ef43b1a.js" crossorigin="anonymous"></script>
@@ -9,6 +12,10 @@
     <div class="accordion-div">
     <button class="accordion">Style</button>
     <div class="panel">
+      <div>
+        <input type="checkbox" id="tank-top" value="tank-top">
+        <label for="tank-top"> Tank Top</label><br>
+      </div>
       <div>
         <input type="checkbox" id="short-sleeve" value="short-sleeve">
         <label for="short-sleeve"> Short Sleeve</label><br>
@@ -32,6 +39,22 @@
       <div >
         <input type="checkbox" id="dresses" value="dress">
         <label for="dresses"> Dresses</label><br>
+      </div>
+      <div >
+        <input type="checkbox" id="jackets" value="jackets">
+        <label for="jackets"> Jackets</label><br>
+      </div>
+      <div >
+        <input type="checkbox" id="overalls" value="overalls">
+        <label for="overalls"> Overalls</label><br>
+      </div>
+      <div >
+        <input type="checkbox" id="rompers" value="rompers">
+        <label for="rompers"> Rompers</label><br>
+      </div>
+      <div >
+        <input type="checkbox" id="shoes" value="shoes">
+        <label for="shoes"> Shoes</label><br>
       </div>
     </div>
 
@@ -80,8 +103,8 @@
             <img id="bottom">
           </div>
         </div>
-        <div class="shoes">
-          <img id="shoes">
+        <div class="shoes-div" id="shoes-div">
+          <img id="shoes-img">
         </div>
       </div>
       <div class="newOutfit">
