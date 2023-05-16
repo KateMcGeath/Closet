@@ -95,6 +95,11 @@ rompers[3] = {img: "romper4.png", style: "romper", color: "grey", weather: ["sum
 rompers[4] = {img: "romper5.png", style: "romper", color: "grey", weather: ["summer", "fall", "spring", "winter"]};
 rompers[5] = {img: "romper6.png", style: "romper", color: "pink", weather: ["summer", "fall", "spring", "winter"]};
 
+const tank_tops = [];
+tank_tops[0] = {img: "tanktop1.png", style: "tank-top", color: "white", weather: ["summer", "spring", "fall"]};
+tank_tops[1] = {img: "tanktop2.png", style: "tank-top", color: "blue", weather: ["summer", "spring", "fall"]};
+tank_tops[2] = {img: "tanktop3.png", style: "tank-top", color: "grey", weather: ["summer", "spring", "fall"]};
+tank_tops[3] = {img: "tanktop4.png", style: "tank-top", color: "orange", weather: ["summer", "spring", "fall"]};
 
 
 /**On Click event for each checkbox that is selected,
@@ -155,45 +160,67 @@ function getSelectedClothes() {
         //While val is defined, loop through clothes array.
         while(val) {
 
+            //then compare value to tank-top.
+            //If val is equal, push clothes object onto selected tops array.
+            if(val === 'tank-top') {
+                for(i = 0; i < tank_tops.length; i++) {
+                    selectedTops.push(tank_tops[i].img);
+                }
+                topExists = true;
+            }
             //then compare value to short-sleeve.
             //If val is equal, push clothes object onto selected tops array.
             if(val === 'short-sleeve') {
-                selectedTops.push(short_sleeves[j].img);
+                for(i = 0; i < short_sleeves.length; i++) {
+                    selectedTops.push(short_sleeves[i].img);
+                }
                 topExists = true;
             }
             //then compare value to long-sleeve.
             //If val is equal, push clothes object onto selected tops array.
             if(val === 'long-sleeve') {
-                selectedTops.push(long_sleeves[j].img);
+                for(i = 0; i < long_sleeves.length; i++) {
+                    selectedTops.push(long_sleeves[i].img);
+                }
                 topExists = true;
             }
             //then compare value to shorts.
             //If val is equal, push clothes object onto selected bottoms array.
             if(val === 'shorts') {
-                selectedBottoms.push(shorts[j].img);
+                for(i = 0; i < shorts.length; i++) {
+                    selectedBottoms.push(shorts[i].img);
+                }
                 bottomExists = true;
             }
             //then compare value to pants.
             //If val is equal, push clothes object onto selected bottoms array.
             if(val === 'pants') {
-                selectedBottoms.push(pants[j].img);
+                for(i = 0; i < pants.length; i++) {
+                    selectedBottoms.push(pants[i].img);
+                }
                 bottomExists = true;
             }
             //then compare value to skirt.
             //If val is equal, push clothes object onto selected bottoms array.
             if(val === 'skirt') {
-                selectedBottoms.push(skirts[j].img);
+                for(i = 0; i < skirts.length; i++) {
+                    selectedBottoms.push(skirts[i].img);
+                }
                 bottomExists = true;
             }
             //then compare value to dress.
             //If val is equal, push clothes object onto selected dresses array.
             if(val === 'dress') {
-                selectedDresses.push(dresses[j].img);
+                for(i = 0; i < dresses.length; i++) {
+                    selectedDresses.push(dresses[i].img);
+                }
                 dressExists = true;
             }//then compare value to shoes.
             //If val is equal, push clothes object onto selected shoes array.
             if(val === 'shoes') {
-                selectedShoes.push(shoes[j].img);
+                for(i = 0; i < shoes.length; i++) {
+                    selectedShoes.push(shoes[i].img);
+                }
                 shoesExists = true;
             }
                 
@@ -243,9 +270,9 @@ function getSelectedClothes() {
                 //         i++;
                 //     }
                 // } 
+            //Pop off the next value that is selected.
+            val = values.pop();
         }
-        //Pop off the next value that is selected.
-        val = values.pop();
     }    
 }
 
